@@ -14,9 +14,12 @@ class MyCustomTopo(Topo):
     # Override build to make your own topology
     def build(self):
         # Write your topology here
-        core_switch = self.addSwitch('cr1', switch=OVSSwitch)
-        aggr_switch_1 = self.addSwitch('as1', switch=OVSSwitch)
-        aggr_switch_2 = self.addSwitch('as2', switch=OVSSwitch)
+        core_switch_ovs = OVSSwitch(name='core1')
+        core_switch = self.addSwitch('cr1', switch=core_switch_ovs)
+        aggr_switch_ovs_1 =OVSSwitch(name='aggr1')
+        aggr_switch_1 = self.addSwitch('as1', switch=aggr_switch_ovs_1)
+        aggr_switch_ovs_2 = OVSSwitch(name='aggr2')
+        aggr_switch_2 = self.addSwitch('as2', switch=aggr_switch_ovs_2)
 
         h1 = self.addHost('s1h1')
         h2 = self.addHost('s1h2')
