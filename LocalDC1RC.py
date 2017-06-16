@@ -29,20 +29,20 @@ class FreakDC(Topo):
         sw2h4 = self.addHost('s2h4', ip='192.168.10.12/24')
         sw2h5 = self.addHost('s2h5', ip='192.168.10.13/24')
 
-        self.addLink(core_switch_1,aggr_switch_1)
-        self.addLink(core_switch_1,aggr_switch_2)
+        self.addLink(node1=core_switch_1,node2=aggr_switch_1,port1=1,port2=1)
+        self.addLink(node1=core_switch_1,node2=aggr_switch_2,port1=2,port2=1)
 
-        self.addLink(aggr_switch_1,sw1h1)
-        self.addLink(aggr_switch_1, sw1h2)
-        self.addLink(aggr_switch_1, sw1h3)
-        self.addLink(aggr_switch_1, sw1h4)
-        self.addLink(aggr_switch_1, sw1h5)
+        self.addLink(node1=aggr_switch_1,node2=sw1h1,port1=2,port2=1)
+        self.addLink(node1=aggr_switch_1,node2=sw1h2,port1=3,port2=1)
+        self.addLink(node1=aggr_switch_1,node2=sw1h3,port1=4,port2=1)
+        self.addLink(node1=aggr_switch_1,node2=sw1h4,port1=5,port2=1)
+        self.addLink(node1=aggr_switch_1,node2=sw1h5,port1=6,port2=1)
 
-        self.addLink(aggr_switch_2, sw2h1)
-        self.addLink(aggr_switch_2, sw2h2)
-        self.addLink(aggr_switch_2, sw2h3)
-        self.addLink(aggr_switch_2, sw2h4)
-        self.addLink(aggr_switch_2, sw2h5)
+        self.addLink(node1=aggr_switch_2, node2=sw2h1,port1=2,port2=1)
+        self.addLink(node1=aggr_switch_2, node2=sw2h2,port1=3,port2=1)
+        self.addLink(node1=aggr_switch_2, node2=sw2h3,port1=4,port2=1)
+        self.addLink(node1=aggr_switch_2, node2=sw2h4,port1=5,port2=1)
+        self.addLink(node1=aggr_switch_2, node2=sw2h5,port1=6,port2=1)
 
 
 if __name__ == "__main__":
