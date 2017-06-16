@@ -46,15 +46,13 @@ class FreakDC(Topo):
 
 
 if __name__ == "__main__":
-    setLogLevel("info")
+   setLogLevel("info")
 
     topology = FreakDC()
-
-    net = Mininet(topo=topology)
-
-    net.addController("FreakCustomController", controller=RemoteController, ip='192.168.1.4', port=6633)
-
-
+    controllerIP = '127.0.0.1'
+    controllerPort = 6633
+    freakController = RemoteController(name='FreakRemoteController', ip=controllerIP, port=controllerPort)
+    net = Mininet(topo=topology,controller=freakController)
     net.start()
     CLI(net)
     net.stop()
